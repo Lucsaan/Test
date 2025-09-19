@@ -40,24 +40,21 @@ function saveTodos(todos) {
 
 // Befehle
 function listTodos(todos) {
-  if (todos.length === 0) {
-    console.log("Keine Aufgaben vorhanden.");
-    return;
-  }
-  console.log("=== ToDos ==="); // Unterschied Version A
-  todos.forEach((t, i) => {
-    const status = t.done ? "[x]" : "[ ]";
-    console.log(`${i + 1}. ${status} ${t.text}`);
-  });
+    if (todos.length === 0) {
+        console.log("Keine Aufgaben vorhanden.");
+        return;
+    }
+    todos.forEach((t, i) => {
+        const status = t.done ? "[x]" : "[ ]";
+        console.log(`${i + 1}. ${status} ${t.text}`);
+    });
 }
 
 function addTodo(todos, text) {
-  todos.push({ text, done: false });
-  saveTodos(todos);
-  console.log(`Neue Aufgabe: "${text}" wurde gespeichert.`); // Unterschied Version A
+    todos.push({ text, done: false });
+    saveTodos(todos);
+    console.log(`Aufgabe hinzugefügt: "${text}"`);
 }
-
- 
 
 function markDone(todos, index) {
     if (index < 1 || index > todos.length) {
