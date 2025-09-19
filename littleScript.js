@@ -44,6 +44,7 @@ function listTodos(todos) {
         console.log("Keine Aufgaben vorhanden.");
         return;
     }
+    console.log("*** Aktuelle Aufgabenliste ***"); // Unterschied Version B
     todos.forEach((t, i) => {
         const status = t.done ? "[x]" : "[ ]";
         console.log(`${i + 1}. ${status} ${t.text}`);
@@ -53,8 +54,9 @@ function listTodos(todos) {
 function addTodo(todos, text) {
     todos.push({ text, done: false });
     saveTodos(todos);
-    console.log(`Aufgabe hinzugefügt: "${text}"`);
+    console.log(`Aufgabe erfolgreich hinzugefügt: ${text}`); // Unterschied Version B
 }
+
 
 function markDone(todos, index) {
     if (index < 1 || index > todos.length) {
